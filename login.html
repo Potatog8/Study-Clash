@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Clash | Log in or sign up</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/login.css">
+</head>
+
+<body>
+
+  <!-- NAV BAR (placeholder: add your logo and links here later) -->
+  <nav class="site-nav" aria-label="Main navigation"></nav>
+
+  <main class="split">
+
+    <!-- LEFT: login / signup -->
+    <section class="auth-side" aria-label="Log in or sign up">
+      <div class="auth">
+
+        <!-- CSS-only tab switch: no JavaScript needed -->
+        <input type="radio" name="mode" id="tab-login" class="mode-radio" checked>
+        <input type="radio" name="mode" id="tab-signup" class="mode-radio">
+
+        <div class="tabs">
+          <label for="tab-login">Log in</label>
+          <label for="tab-signup">Sign up</label>
+        </div>
+
+        <!-- LOG IN -->
+        <form class="form form-login" id="login-form" action="#" method="post">
+          <h2>Welcome back</h2>
+
+
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+          </div>
+
+          <a class="forgot" href="#">Forgot your password?</a>
+
+          <button type="submit" class="btn">Log in</button>
+        </form>
+
+        <!-- SIGN UP -->
+        <form class="form form-signup" id="signup-form" action="#" method="post">
+          <h2>Create your account</h2>
+          <p class="form-hint">Join Study Clash and start competing with your friends.</p>
+
+          <div class="field">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username" name="username" autocomplete="username" required>
+          </div>
+
+          <div class="field">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" name="password" autocomplete="new-password" minlength="6"
+              required>
+          </div>
+
+          <div class="field">
+            <label for="signup-confirm">Confirm password</label>
+            <input type="password" id="signup-confirm" name="confirm" autocomplete="new-password" minlength="6"
+              required>
+          </div>
+
+          <button type="submit" class="btn">Create account</button>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- RIGHT: app name + description -->
+    <section class="brand-side" aria-label="About Study Clash">
+      <div class="brand">
+
+        <!-- LOGO PLACEHOLDER: replace this div with <img src="logo.png" alt="Study Clash logo"> -->
+        <div class="logo-slot" role="img" aria-label="Logo placeholder"></div>
+
+        <h1>Study Clash</h1>
+        <p class="tagline">Study Clash turns studying into a friendly competition: team up with friends, track your
+          focus time, and climb the leaderboard together while actually getting your work done!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (placeholder: add links and copyright here later) -->
+  <footer class="site-footer"></footer>
+
+</body>
+
+</html>
