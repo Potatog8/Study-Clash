@@ -1,0 +1,496 @@
+STUDY CLASH
+PRODUCT BLUEPRINT
+A shared product and development reference for the hackathon team
+24-HOUR HACKATHON  •  TEAM OF 4  •  BEGINNER EXPERIENCE
+Prepared from the team's product-planning questionnaire
+
+ 
+How to use this document
+This blueprint consolidates the team's current decisions about Study Clash. It is intended to give every teammate the same understanding of the product, its core behaviour, and the scope of the hackathon build.
+CONFIRMED
+A decision explicitly selected in the planning questionnaire. Treat it as the current product direction.
+UNDECIDED
+The team has not made a final choice. Do not assume an answer without discussing it.
+RECOMMENDATION
+A suggested implementation or scope decision. It is not a confirmed product requirement.
+
+ 
+Scope note  The product vision is broader than what a beginner team of four can reliably finish in 24 hours. The MVP section separates the selected features from a recommended build order.
+
+ 
+Table of contents
+·       1. Executive Summary
+·       2. Problem Statement & Product Vision
+·       3. Target Audience & Groups
+·       4. Accounts & Student Profiles
+·       5. Application Overview & Navigation
+·       6. Study Tracking System
+·       7. Assignment Management
+·       8. Competition, Points & Rankings
+·       9. Social Features & Group Interaction
+·       10. Technical Architecture
+·       11. Security, Privacy & Edge Cases
+·       12. MVP Scope & Priorities
+·       13. Hackathon Development Plan
+·       14. Demo & Presentation Plan
+·       15. Unresolved Questions & Recommendations
+
+ 
+1. Executive Summary
+Study Clash is a competitive study platform for college and university students. Students create or join private groups with friends and classmates, record their study sessions, and compare their activity through group leaderboards, statistics, and a shared activity feed. The product turns studying into a friendly competition by making group members' study activity visible to one another.
+The central idea is simple: motivate students to study more by appealing to their natural desire to compete, improve, and outperform their friends. Study Clash is intended to feel intense, social, and game-inspired rather than like a traditional private productivity tracker.
+Product name
+Study Clash
+Primary audience
+College and university students
+Platform direction
+Web and mobile; mobile-first responsive design
+Visual direction
+Gaming-inspired, competitive, dark theme; blue, black, and white
+Frontend
+Plain HTML, CSS, and JavaScript
+Backend / database
+Firebase
+Hosting
+Firebase Hosting
+Hackathon
+24 hours; four beginner-level teammates; shared development
+Main objective
+A working end-to-end application
+
+ 
+2. Problem Statement & Product Vision
+Problem
+Many students struggle to find the motivation to study consistently. Studying can feel repetitive, isolating, or easy to postpone, especially when there is no immediate sense of progress or accountability.
+Proposed solution
+Study Clash makes studying more engaging by allowing students to compete with friends in private groups. Members can see one another's study activity, compare statistics, participate in weekly and all-time rankings, and earn temporary recognition for winning or finishing last.
+Core value proposition
+·       Encourages students to study more.
+·       Makes studying more enjoyable through competition.
+·       Builds a competitive student community.
+·       Makes study activity visible to a student's group instead of keeping progress entirely private.
+Product personality
+Competitive, intense, social, and gaming-inspired. The competitive tone should remain playful enough that the app encourages participation rather than discouraging students who are behind.
+3. Target Audience & Groups                         	
+Target audience
+College and university students, particularly friends or classmates who want to motivate one another through friendly competition.
+Group creation and membership
+·       A student can create a group and invite friends.
+·       Groups are intended to bring together students in the same program or cohort.
+·       Groups are private and can be joined through an invite link or code.
+·       A student can belong to multiple groups. (Skippable for hackathon scope)
+·       There is no strict group-size limit and no minimum group size.
+·       All members have equal permissions for ordinary group participation; the original creator is the exception for group deletion.
+·       Members can leave a group whenever they want.
+·       Only the original creator can delete the group.
+ 
+Group experience
+A group should feel like a small community or server, similar in concept to a Discord server. Members enter a group and navigate between distinct areas such as its leaderboard, chatroom, and activity feed.
+4. Accounts & Student Profiles
+Account creation
+·       Users register using an email address and password.
+·       No special student or school verification is required.
+·       Users use their real first and last names as their username/display name.
+·       Users select a profile picture from preset avatars.
+·       Profiles do not display school-related information.
+Profile visibility
+A student's profile information and study statistics are visible to members of groups they share. Study activity and statistics should not be publicly visible outside those groups.
+Profile statistics
+·       Total study hours
+·       Current group ranking
+·       Study streak
+·       Daily and weekly study hours
+·       Longest study session
+·       Recent study activity
+A student may belong to multiple groups, so rankings should be understood in the context of a particular group rather than as one universal global rank.
+Account deletion
+Users can delete their own accounts. The exact deletion behaviour for associated study records, messages, and group ownership remains to be specified.
+5. Application Overview & Navigation
+Platform and design
+Platforms
+Web and mobile applications
+Layout approach
+Mobile-first responsive design
+Navigation
+Bottom navigation bar
+Theme
+Dark theme
+Colours
+Blue, black, and white
+Visual style
+Gaming-inspired and competitive
+First page on launch
+Undecided
+
+ 
+Planned pages / sections
+·       Dashboard
+·       Group leaderboard
+·       Group chatroom
+·       Student profile
+·       Study history and statistics
+·       Group creation and joining
+·       Settings
+Group page structure
+Each group page should have separate tabs or sections for:
+·       Leaderboard — rankings, points, gaps between members, and progress bars.
+·       Chatroom — text-based group conversation.
+·       Activity — live and recent study events.
+·       Additional group information such as study history/statistics may be placed in an appropriate tab or profile view.
+UNDECIDED  The first page shown after login or app launch has not been selected. A dashboard is one possible option, but it is not a confirmed decision.
+
+ 
+6. Study Tracking System
+Ways to record study
+·       The product vision includes both an in-app study timer and manual study-session entries.
+·       Students can manually add a session they forgot to record.
+·       Students can pause and resume an active timer.
+·       A study session must be at least five minutes long.
+·       Students can select a course or subject for each session.
+·       Only one active study session is allowed per student at a time.
+·       Students can view their own detailed study history.
+·       Students can edit or delete their own study sessions.
+Timer behaviour
+·       When a student closes the app or browser, the active timer automatically pauses.
+·       If a student simply forgets to stop a timer while the app remains open, it continues running until they stop it.
+·       The interface should make the active, paused, and completed states clear.
+IMPLEMENTATION DETAIL TO RESOLVE  The app needs a reliable way to detect or represent a closed session and restore its paused state when the user returns. A browser closing is not the same as a user pressing Pause.
+
+ 
+Group visibility
+Group members can see live study activity, completed sessions, and accumulated study hours. The activity feed should communicate when members start or finish studying.
+Manual entries
+Manual entries are allowed and are not visibly labelled differently from timer-recorded sessions. This is a confirmed product choice, although it means the system relies on honest reporting.
+Minimum session and streak rules
+A session must be at least five minutes. A student's streak increases for each day on which they study for at least 30 minutes.
+7. Assignment Management
+Assignments are not a major part of the intended product. The user clarified that Study Clash should focus on studying rather than becoming an assignment-management application.
+Product direction
+Study-focused, not assignment-focused
+Assignment feature
+Undecided and not part of the selected MVP
+Previously discussed statuses
+Not started, In progress, Completed
+Completion
+Would be manually marked by the student if implemented
+Ranking impact
+Assignments do not contribute to rankings
+
+ 
+RECOMMENDATION  Do not spend hackathon time building an assignment system. Keep it out of the MVP unless the team later identifies a clear reason to add it.
+
+ 
+8. Competition, Points & Rankings
+Leaderboards
+·       Each group has its own leaderboard.
+·       There are weekly and all-time leaderboards.
+·       Weekly rankings reset every Sunday at midnight; all-time totals remain.
+·       Tied students share the same rank.
+·       The leaderboard should combine ranks, points, gaps between players, and progress bars.
+·       Member comparisons can include a mixture of study statistics.
+Ranking formula
+Rankings are based mostly on study time, with a smaller bonus for the number of study sessions. The exact weighting, point values, and any caps or minimum conditions have not yet been defined.
+RECOMMENDATION  Use study minutes as the dominant score and add a modest session-completion bonus. Consider a minimum session duration (already set at five minutes) and a reasonable cap or diminishing return for session bonuses so that splitting one study block into many tiny sessions is not overly rewarded.
+
+ 
+Streaks, challenges, and rewards
+·       A streak day requires at least 30 minutes of study.
+·       The app automatically creates group challenges.
+·       There are no personal or group goals; the focus is competition.
+·       Badges are awarded only for winning competitions.
+·       Digital rewards may include trophies and titles.
+·       The weekly winner receives a temporary crown displayed above their profile in the group chatroom.
+·       The weekly loser (the member in last place) receives a temporary dunce hat displayed above their profile in the group chatroom.
+·       Weekly winner/loser results are announced, as well as represented by profile decorations.
+UNDECIDED  The exact challenge definitions, reward duration, and how to handle a one-member group or a tie for last place have not been specified.
+
+ 
+Integrity approach
+The product relies on honesty. There is no reporting system for suspicious study activity. This is a deliberate simplicity choice for the current plan, not a guarantee that all submitted study time is accurate.
+9. Social Features & Group Interaction
+Group chatroom
+·       Every group has its own chatroom.
+·       Chat supports text messages only.
+·       Members can delete their own messages.
+·       Chat and the study activity feed are separate sections.
+Activity feed
+The activity feed displays study events from group members, including study starts and finishes. It is intended to make group activity visible and create a sense of live competition.
+Presence and notifications
+·       The app shows whether members are online and whether they are currently studying.
+·       Planned notification events: someone starts or finishes studying; weekly rankings change; the weekly winner is announced; a group member sends a chat message; a study streak is about to expire.
+UNDECIDED  The delivery method for notifications has not been selected. In-app, browser, and email notifications remain possible implementation choices.
+
+ 
+Moderation
+No formal moderation features are planned. Members have equal permissions for normal group participation, but only the original creator can delete the group. Chat message deletion is available to each message's author.
+10. Technical Architecture
+Confirmed technology choices
+Frontend
+Plain HTML, CSS, and JavaScript
+Backend / database
+Firebase
+Hosting
+Firebase Hosting
+Real-time behaviour
+Yes — real-time updates are expected
+Hackathon restrictions
+None specified
+Browser/device support
+Undecided
+Notification delivery
+Undecided
+
+ 
+Likely Firebase building blocks
+The following are implementation recommendations, not yet confirmed service selections:
+·       Firebase Authentication for email/password registration and login.
+·       Cloud Firestore for user profiles, groups, memberships, study sessions, messages, and leaderboard data.
+·       Firestore real-time listeners for chat, activity feeds, and live group updates.
+·       Firebase Hosting for deployment.
+·       Firebase Security Rules to restrict access to group data.
+·       Cloud Functions may be useful for trusted server-side calculations, scheduled weekly resets, and reward assignment, if the team has enough time and the required Firebase plan/configuration.
+Suggested conceptual data model
+Collection / entity
+Purpose
+Example fields
+users
+Account profile and aggregate statistics
+displayName, email reference, avatarId, totals
+groups
+Group identity and creator
+name, inviteCode, creatorId, createdAt
+memberships
+Connect users to groups
+groupId, userId, joinedAt
+studySessions
+Recorded study activity
+userId, groupId, start/end, duration, subject, source
+messages
+Group chat messages
+groupId, senderId, text, createdAt
+weeklyResults
+Weekly standings and awards
+groupId, weekStart, scores, winnerId, lastPlaceId
+
+ 
+This is a starting model only. The team should avoid duplicating sensitive or frequently changing data unnecessarily. For a short hackathon, keep the schema small and document any denormalized leaderboard totals.
+11. Security, Privacy & Edge Cases
+Privacy rules
+·       Only members of a student's groups can see that student's study activity and statistics.
+·       Group chat and activity data should only be readable by members of the relevant group.
+·       Users can delete their own accounts.
+·       No special student verification is required.
+Access control
+·       Users should only edit or delete their own study sessions.
+·       Users should only delete their own chat messages.
+·       Only the original creator can delete a group.
+·       Group membership must be checked before allowing access to group content.
+SECURITY RECOMMENDATION  Do not rely on hiding buttons in the frontend. Enforce group membership, creator-only group deletion, and user-owned edits/deletions in Firebase Security Rules and, where appropriate, trusted backend logic.
+
+ 
+Important edge cases
+Scenario
+Current decision / open handling
+Member leaves a group
+They can leave whenever they want. Decide what happens to their historical posts and sessions in that group.
+Group deletion
+Only the original creator can delete it. Decide what happens if the creator leaves or deletes their account.
+One-member group
+Allowed. Winner/loser awards may not make sense; handling is undecided.
+Tied rankings
+Members share the same rank. Tie handling for winner/last-place awards needs clarification.
+Weekly reset
+Sunday at midnight. Timezone is not specified.
+App/browser closes during a timer
+Timer automatically pauses. Restore paused state on next visit.
+Forgotten running timer
+Continues until stopped if the app remains open.
+Manual sessions
+Allowed and not visibly labelled differently from timer sessions.
+Account deletion
+Allowed; related data deletion and group ownership transfer need definition.
+Chat messages
+Authors can delete their own messages. Whether deletion is permanent or shown as a placeholder is undecided.
+
+ 
+Security and privacy implementation checklist
+·       Require authentication before accessing private app features.
+·       Check group membership before returning group chat, activity, sessions, or statistics.
+·       Enforce creator-only group deletion in backend rules.
+·       Enforce ownership checks for editing/deleting sessions and messages.
+·       Do not expose invite codes or private group content through public profile pages.
+·       Validate session durations and timestamps on the trusted side where practical.
+·       Define what account deletion does to user-created groups and historical activity.
+12. MVP Scope & Priorities
+The following ten features were explicitly selected as the hackathon MVP:
+1.          Account creation and login
+2.          Creating and joining groups
+3.          Group leaderboard
+4.          Study activity feed
+5.          Group chatroom
+6.          Manual study session entries
+7.          Weekly and all-time rankings
+8.          Student profiles and statistics
+9.          Study streaks
+10.     Weekly crown and dunce hat rewards
+Recommended implementation order
+Order
+Build
+Why it comes here
+1
+Authentication and basic profiles
+Needed to identify users and connect activity to people.
+2
+Create/join groups and membership checks
+Creates the private spaces where competition happens.
+3
+Record study sessions
+Provides the core data for activity and rankings.
+4
+Group activity feed
+Makes study behaviour visible to the group.
+5
+Basic leaderboard
+Delivers the central competitive experience.
+6
+Group chat
+Adds social interaction after the group structure works.
+7
+Profile statistics and study history
+Makes individual progress visible.
+8
+Weekly/all-time calculations and streaks
+Adds progression and repeat engagement.
+9
+Crown/dunce hat weekly awards
+Adds the distinctive reward mechanic after ranking works.
+
+ 
+MVP CUT LINE  If time runs short, prioritize a complete flow: register/login → create or join a group → add a study session → see it in the group feed → see the leaderboard update. A simple working version of this loop is more valuable than several disconnected screens.
+
+ 
+Not in the selected MVP / later scope
+·       Assignment management — not a core product focus and currently undecided.
+·       Browser/email notification delivery — undecided.
+·       Advanced moderation and suspicious-activity reporting — not planned.
+·       Advanced challenges, badges, and extra reward types — part of the broader vision but not explicitly selected as MVP requirements.
+·       Native iOS/Android applications — platform delivery approach is undecided; mobile-first responsive web is a practical hackathon starting point.
+13. Hackathon Development Plan
+Duration
+24 hours
+Team
+4 people
+Experience
+Beginner
+Working style
+Shared development
+Priority
+Working end-to-end application
+
+ 
+Suggested team workflow
+The team chose shared development rather than fixed frontend/backend/design roles. To keep collaboration manageable, agree on the data model, page structure, and naming conventions before parallel implementation begins.
+11.     Create the shared repository and confirm everyone can run the project.
+12.     Agree on Firebase project setup, environment/configuration handling, and access permissions.
+13.     Sketch the core screens and the group navigation before implementing them.
+14.     Define the first version of the Firestore collections and document fields.
+15.     Build in small, integrated increments; merge and test frequently.
+16.     Keep a working main branch and avoid leaving integration until the final hours.
+17.     Reserve time for testing the full demo flow on both desktop and a mobile-sized viewport.
+Suggested 24-hour time allocation
+Phase
+Suggested time
+Outcome
+Planning and setup
+1–2 hours
+Agree on schema, user flow, tasks, Firebase setup, and repository.
+Core app foundation
+3–4 hours
+Authentication, navigation, group creation/joining.
+Core study loop
+4–5 hours
+Manual session entry, feed, basic leaderboard.
+Social and profiles
+3–4 hours
+Chatroom, profile, statistics/history.
+Competition extras
+2–3 hours
+Weekly/all-time views, streaks, crown/dunce display.
+Integration and testing
+3–4 hours
+Fix bugs, validate permissions, test full flow.
+Demo preparation
+1–2 hours
+Seed demo data, rehearse, prepare slides and fallback screenshots.
+
+ 
+These are planning estimates, not a rigid schedule. The team should reduce feature scope rather than eliminate integration and testing time.
+14. Demo & Presentation Plan
+The intended demonstration is a group of students competing through study sessions.
+Recommended demo sequence
+18.     Show the Study Clash landing/login experience.
+19.     Sign in as a student and create a private group.
+20.     Show how another student joins through an invite code or link.
+21.     Open the group server-style page and show its leaderboard, chat, and activity tabs.
+22.     Add a study session for one student.
+23.     Show the new study activity in the group feed and the leaderboard/statistics changing.
+24.     Show the weekly and all-time leaderboard views.
+25.     Explain the weekly winner crown and last-place dunce hat mechanic.
+DEMO TIP  Prepare multiple test accounts and pre-created groups before presenting. If the hackathon build cannot safely demonstrate concurrent live sessions, use two browser profiles or devices and seed realistic data in advance.
+
+ 
+UNDECIDED  Judging criteria are not yet known. Tailor the final pitch once the organizers provide the rubric.
+
+ 
+15. Unresolved Questions & Recommendations
+Open product decisions
+Open item
+What remains to decide
+First screen after launch/login
+Undecided. Consider a dashboard with the user's groups, recent activity, and current rankings.
+Audience access
+Undecided whether the app is open to all students or limited to schools/cohorts.
+Notification delivery
+Undecided between in-app, browser push, email, or a combination.
+Device/browser support
+Undecided. A responsive web app is recommended for the hackathon.
+Ranking formula
+The weighting is described qualitatively, but the exact formula and point values are undecided.
+Weekly reset timezone
+Sunday at midnight is confirmed; timezone is not.
+Group with one member
+Groups of any size are allowed; winner/loser award behaviour is undecided.
+Tied winner or last place
+Shared ranks are confirmed; award allocation in ties is undecided.
+Reward duration
+Crown and dunce hat are temporary; exact duration is undecided.
+Automatic challenges
+The app should create group challenges, but challenge types and rules are not defined.
+Creator leaves/deletes account
+Only creator can delete group; ownership transfer or orphaned-group behaviour is undecided.
+Account deletion consequences
+Users can delete accounts; treatment of historical sessions, messages, and created groups needs definition.
+Manual entry validation
+Manual entries are allowed without labels; decide whether edits to old sessions have time limits or validation.
+Timer pause detection
+Timer pauses when app closes; technical handling and recovery need implementation testing.
+Chat deletion behaviour
+Members can delete their own messages; permanent deletion versus a deleted-message placeholder is undecided.
+Assignment feature
+Not a core focus and not part of selected MVP; future need is undecided.
+Judging criteria
+Undecided.
+
+ 
+Recommendations for the team
+·       Keep the hackathon MVP focused on the core competition loop rather than trying to finish every long-term feature.
+·       Use Firebase Authentication, Firestore, and Firebase Hosting as the simplest likely fit for the selected stack.
+·       Make group privacy and authorization rules part of the first implementation, not a last-minute addition.
+·       Define a simple, transparent ranking formula before implementing the leaderboard. Avoid rewarding session count too heavily.
+·       Treat weekly reset and reward assignment as one consistent weekly-results operation so rankings and decorations do not disagree.
+·       Use a responsive web app for the hackathon rather than attempting separate native mobile applications.
+·       Build the group interface around the Discord-like server concept: a clear group identity with distinct tabs for rankings, chat, and activity.
+·       Document any shortcuts taken during the hackathon so they can be revisited after the event.
+Final product statement
+Study Clash is a private, group-based study competition platform that helps college and university students stay motivated by making their study activity visible to friends. Through group leaderboards, live activity, chat, streaks, and weekly rewards, it turns studying into a shared competition.
+
