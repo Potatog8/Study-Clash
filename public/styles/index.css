@@ -1,0 +1,289 @@
+/* Landing page styles.
+   Uses the palette variables (--navy, --blue, --purple, --gold, --sand, --paper)
+   and fonts defined in navbar.css, so load navbar.css first. */
+
+/* The landing page has no bottom navbar, so remove the space reserved for it */
+.page-content {
+  padding: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--blue);
+  border: 2px solid var(--blue);
+}
+
+.btn-primary:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn-secondary {
+  color: var(--navy);
+  background: transparent;
+  border: 2px solid var(--navy);
+}
+
+.btn-secondary:hover {
+  color: var(--paper);
+  background: var(--navy);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 96px) 24px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+.hero h1 {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5.5vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  margin: 0 0 32px;
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Sample leaderboard preview ---------- */
+.preview {
+  padding: 28px;
+  background: var(--paper);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(5, 58, 100, 0.18);
+}
+
+.preview-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.preview-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.preview-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+}
+
+.preview-row:last-child {
+  margin-bottom: 0;
+  border-style: dashed;
+}
+
+.preview-top {
+  border-color: var(--gold);
+  background: var(--sand);
+}
+
+.rank {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--sand);
+  background: var(--navy);
+  border-radius: 50%;
+}
+
+.player {
+  font-weight: 700;
+}
+
+.time {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ---------- How it works ---------- */
+.steps {
+  padding: clamp(40px, 7vw, 80px) 24px;
+  background: var(--paper);
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+}
+
+.steps h2,
+.step-grid {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.steps h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-align: center;
+}
+
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step {
+  padding: 28px;
+  background: #fff;
+  border: 2px solid var(--sand);
+  border-radius: 16px;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--sand);
+  background: var(--navy);
+  border-radius: 12px;
+}
+
+.step h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.step p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---------- Final call to action ---------- */
+.cta {
+  padding: clamp(48px, 8vw, 96px) 24px;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(201, 170, 83, 0.28), transparent 38%),
+    linear-gradient(155deg, var(--blue) 0%, var(--purple) 100%);
+}
+
+.cta h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+  color: var(--sand);
+}
+
+.cta p {
+  max-width: 46ch;
+  margin: 0 auto 28px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.btn-light {
+  color: var(--navy);
+  background: var(--sand);
+  border-color: var(--sand);
+}
+
+.btn-light:hover {
+  color: var(--navy);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  background: var(--paper);
+  border-top: 3px solid var(--gold);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions a {
+    flex: 1 1 140px;
+  }
+
+  .step-grid {
+    grid-template-columns: 1fr;
+  }
+}
