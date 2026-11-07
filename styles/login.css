@@ -1,0 +1,300 @@
+/* ---------- Palette ---------- */
+:root {
+  --navy: #053a64;
+  /* rgb(5, 58, 100)    */
+  --blue: #2a5095;
+  /* rgb(42, 80, 149)   */
+  --purple: #535098;
+  /* rgb(83, 80, 152)   */
+  --gold: #c9aa53;
+  /* rgb(201, 170, 83)  */
+  --sand: #e5d29b;
+  /* rgb(229, 210, 155) */
+
+  --paper: #fffdf6;
+  /* form surface, a near-white tint of the sand */
+  --error: #9c2f2f;
+
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --font-body: "DM Sans", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: var(--sand);
+}
+
+/* ---------- Nav + footer placeholders ---------- */
+.site-nav,
+.site-footer {
+  background: var(--paper);
+  min-height: 64px;
+}
+
+.site-nav {
+  border-bottom: 3px solid var(--gold);
+}
+
+.site-footer {
+  border-top: 3px solid var(--gold);
+  min-height: 72px;
+}
+
+/* ---------- Split layout ---------- */
+.split {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Left: auth ---------- */
+.auth-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--sand);
+}
+
+.auth {
+  width: 100%;
+  max-width: 420px;
+  background: var(--paper);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 12px 32px rgba(5, 58, 100, 0.18);
+}
+
+/* Visually hide the radios but keep them keyboard-focusable */
+.mode-radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Tabs */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 28px;
+  background: var(--sand);
+  border-radius: 12px;
+}
+
+.tabs label {
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tabs label:hover {
+  background: rgba(255, 253, 246, 0.6);
+}
+
+#tab-login:checked~.tabs label[for="tab-login"],
+#tab-signup:checked~.tabs label[for="tab-signup"] {
+  background: var(--navy);
+  color: var(--sand);
+}
+
+#tab-login:focus-visible~.tabs label[for="tab-login"],
+#tab-signup:focus-visible~.tabs label[for="tab-signup"] {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Show only the selected form */
+#tab-login:checked~.form-signup,
+#tab-signup:checked~.form-login {
+  display: none;
+}
+
+/* Forms */
+.form h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--navy);
+  background: #fff;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field input:hover {
+  border-color: var(--gold);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(42, 80, 149, 0.25);
+}
+
+.field input:user-invalid {
+  border-color: var(--error);
+}
+
+.forgot {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--blue);
+}
+
+.forgot:hover {
+  color: var(--purple);
+}
+
+.btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 20px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--blue);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  background: var(--purple);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.forgot+.btn {
+  margin-top: 0;
+}
+
+/* ---------- Right: brand ---------- */
+.brand-side {
+  display: flex;
+  align-items: center;
+  padding: 48px clamp(32px, 6vw, 96px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(201, 170, 83, 0.28), transparent 38%),
+    linear-gradient(155deg, var(--blue) 0%, var(--purple) 100%);
+}
+
+.brand {
+  max-width: 520px;
+}
+
+.logo-slot {
+  width: 112px;
+  height: 112px;
+  margin-bottom: 32px;
+  border: 3px dashed var(--gold);
+  border-radius: 24px;
+  background: rgba(5, 58, 100, 0.25);
+}
+
+.brand h1 {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--sand);
+}
+
+.tagline {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  /* Show the brand first on small screens */
+  .brand-side {
+    order: -1;
+    padding: 40px 24px;
+  }
+
+  .logo-slot {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+  }
+
+  .auth-side {
+    padding: 32px 16px 48px;
+  }
+
+  .auth {
+    padding: 24px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
