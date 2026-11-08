@@ -6,6 +6,14 @@ app.use('/styles', express.static('./public/styles'));
 app.use("/js", express.static("./public/js"));
 app.use("/images", express.static("./public/images"));
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/html/index.html");
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + "/public/html/login.html");
+});
+
 app.get("/api/firebase-config", (req, res) => {
   res.json({
     apiKey: process.env.FIREBASE_API_KEY,
@@ -16,9 +24,6 @@ app.get("/api/firebase-config", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
-  res.sendFile(__dirname + "/public/html/login.html");
-});
 
 
 
