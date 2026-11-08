@@ -59,7 +59,7 @@
 
       <h2 id="username">Loading...</h2>
 
-      <p id="profile-rank">Not ranked yet</p>
+      <p class="profile-friend-code">Friend code: <span id="profile-friend-code">---</span></p>
 
     </section>
 
@@ -185,13 +185,16 @@
 
       <p class="friend-error" id="friend-error" role="alert"></p>
 
-      <button type="submit" class="friend-submit">Add Friend</button>
+      <button type="submit" class="friend-submit">Send request</button>
     </form>
   </dialog>
 
 
   <!-- ADD FRIEND JAVASCRIPT -->
   <script type="module" src="/js/addFriend.js"></script>
+
+  <!-- FRIEND CODE ON PROFILE -->
+  <script type="module" src="/js/profileFriendCode.js"></script>
 
   <!-- PROFILE JAVASCRIPT -->
   <script type="module" src="/js/profile.js"></script>
