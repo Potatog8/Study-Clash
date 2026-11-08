@@ -35,7 +35,8 @@ function el(tag, className, text) {
 }
 
 
-// 750 -> "12h 30m", 45 -> "45m"
+
+// 750 -> "12h 30m", 45 -> "45m", missing -> "---"
 function formatMinutes(minutes) {
   if (minutes === null || minutes === undefined) return EMPTY;
 

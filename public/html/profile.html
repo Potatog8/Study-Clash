@@ -46,15 +46,12 @@
 
 
   <!-- PAGE CONTENT -->
-  <main class="page-content container py-4">
+  <main class="page-content container pt-4">
 
     <!-- PROFILE PICTURE AND NAME -->
     <section class="text-center mb-4">
 
-      <img
-        id="profile-avatar"
-        src="/images/cat.png"
-        alt="Profile Avatar"
+      <img id="profile-avatar" src="/images/cat.png" alt="Profile Avatar"
         class="profile-picture rounded-circle mx-auto d-block mb-3">
 
       <h2 id="username">Loading...</h2>
@@ -101,6 +98,9 @@
         </div>
       </div>
 
+
+
+
     </section>
 
 
@@ -118,6 +118,11 @@
         </div>
 
       </div>
+
+
+      <button type="button" class="view-more-btn" id="view-more-btn" hidden>
+        View more previous study sessions
+      </button>
 
     </section>
 
@@ -179,8 +184,8 @@
 
       <div class="field">
         <label for="friend-code">Friend code</label>
-        <input type="text" id="friend-code" class="friend-code-input" name="code" placeholder="A1B2C"
-          autocomplete="off" autocapitalize="characters" spellcheck="false" autofocus>
+        <input type="text" id="friend-code" class="friend-code-input" name="code" placeholder="A1B2C" autocomplete="off"
+          autocapitalize="characters" spellcheck="false" autofocus>
       </div>
 
       <p class="friend-error" id="friend-error" role="alert"></p>
