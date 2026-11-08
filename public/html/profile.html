@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +22,9 @@
 
   <!-- Profile CSS -->
   <link rel="stylesheet" href="/styles/profile.css">
+
+  <!-- Add friend CSS -->
+  <link rel="stylesheet" href="/styles/addFriend.css">
 </head>
 
 <body>
@@ -35,7 +37,10 @@
       <span class="brand-name">Study Clash</span>
     </a>
 
-    <a class="header-login" href="/login">Log in</a>
+    <div class="header-user">
+      <button type="button" class="header-friend" id="add-friend-btn">Add friend</button>
+      <a class="header-login" href="/login">Log in</a>
+    </div>
 
   </header>
 
@@ -62,7 +67,7 @@
     <!-- STUDY STATISTICS -->
     <section class="row g-3 mb-5">
 
-      
+
       <!-- THIS WEEK -->
       <div class="col-6">
         <div class="stat-card text-center p-3 rounded-3">
@@ -95,9 +100,6 @@
           <p class="mb-0">Longest Streak</p>
         </div>
       </div>
-
-
-      
 
     </section>
 
@@ -167,8 +169,33 @@
   </nav>
 
 
+  <!-- ADD FRIEND POPUP -->
+  <dialog class="friend-dialog" id="friend-dialog" aria-labelledby="friend-dialog-title">
+    <form class="friend-form" id="friend-form">
+      <button type="button" class="friend-close" id="friend-close" aria-label="Close">&times;</button>
+
+      <h2 id="friend-dialog-title">Add a friend</h2>
+      <p class="friend-hint">Enter their 5-character friend code (letters and numbers only).</p>
+
+      <div class="field">
+        <label for="friend-code">Friend code</label>
+        <input type="text" id="friend-code" class="friend-code-input" name="code" placeholder="A1B2C"
+          autocomplete="off" autocapitalize="characters" spellcheck="false" autofocus>
+      </div>
+
+      <p class="friend-error" id="friend-error" role="alert"></p>
+
+      <button type="submit" class="friend-submit">Add Friend</button>
+    </form>
+  </dialog>
+
+
+  <!-- ADD FRIEND JAVASCRIPT -->
+  <script type="module" src="/js/addFriend.js"></script>
+
   <!-- PROFILE JAVASCRIPT -->
   <script type="module" src="/js/profile.js"></script>
 
 </body>
+
 </html>
