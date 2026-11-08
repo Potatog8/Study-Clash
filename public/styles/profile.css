@@ -1,0 +1,49 @@
+/* Profile Page */
+.page-content {
+    background-color: #fffdf7;
+    color: #00365c;
+    min-height: 100vh;
+}
+
+/* Profile Avatar */
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background-color: #e7d49e;
+    border: 3px solid #00365c;
+}
+
+/* Profile Rank */
+#profile-rank {
+    color: #2d5199;
+}
+
+/* Statistics Cards */
+.stat-card {
+    background-color: #e7d49e;
+    color: #00365c;
+    border: 1px solid #d6ad4d;
+    height: 100%;
+}
+
+.stat-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    font-size: 13px;
+}
+
+/* Recent Sessions */
+.recent-sessions {
+    color: #00365c;
+}
+
+.empty-sessions {
+    background-color: white;
+    color: #00365c;
+    border: 1px solid #d6ad4d;
+    font-size: 14px;
+}
