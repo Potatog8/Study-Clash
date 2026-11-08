@@ -232,9 +232,6 @@ async function init() {
   const user = await requireUser();
   if (!user) return; // already redirecting to /login
 
-  const data = await getUserData(user.uid);
-  document.getElementById("header-username").textContent = data?.username ?? "";
-
   document.getElementById("logout-btn").addEventListener("click", (e) => {
     e.preventDefault();
     logout();
