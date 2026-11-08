@@ -5,6 +5,7 @@ const fs = require("fs");
 app.use('/styles', express.static('./public/styles'));
 app.use("/js", express.static("./public/js"));
 app.use("/images", express.static("./public/images"));
+app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/html/index.html");
@@ -12,6 +13,10 @@ app.get("/", (req, res) => {
 
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/public/html/login.html");
+});
+
+app.get("/profile", (req, res) => {
+  res.sendFile(__dirname + "/public/html/profile.html");
 });
 
 app.get("/api/firebase-config", (req, res) => {
