@@ -60,7 +60,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     });
 
     // Redirect after successful signup
-    window.location.href = "/home.html";
+    window.location.href = "/skeleton.html";
 
   } catch (err) {
     console.error("Signup error:", err);
@@ -80,7 +80,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     await signInWithEmailAndPassword(auth, email, password);
 
     // Redirect after successful login
-    window.location.href = "/home.html";
+    window.location.href = "public/html/index.html";
 
   } catch (err) {
     console.error("Login error:", err);

@@ -1,5 +1,4 @@
-
-import { db } from "../Config.js";
+import { db } from "./config.js";
 
 import {
   collection,
