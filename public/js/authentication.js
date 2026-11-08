@@ -36,6 +36,19 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       displayName: username,
     });
 
+    // await setDoc(doc(db, "users", cred.user.uid), {
+    //   username,
+    //   email,
+    //   friendCode: "", // Generate a unique code separately
+    //   friendIds: [],
+    //   totalStudyMinutes: 0,
+    //   studyStreak: 0,
+    //   createdAt: serverTimestamp(),
+    //   avatarId: 0,
+
+    // });
+
+
     await setDoc(doc(db, "users", cred.user.uid), {
       username,
       email,
@@ -44,6 +57,8 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       totalStudyMinutes: 0,
       studyStreak: 0,
       createdAt: serverTimestamp(),
+      avatarId: 0,
+      
     });
 
     window.location.href = "/home.html";
