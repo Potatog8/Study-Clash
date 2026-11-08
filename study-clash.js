@@ -13,6 +13,12 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/public/html/login.html");
 });
+app.get("/study", (req, res) => {
+  res.sendFile(__dirname + "/public/html/study.html");
+});
+app.get("/home", (req, res) => {
+  res.sendFile(__dirname + "/public/html/home.html");
+});
 
 app.get("/api/firebase-config", (req, res) => {
   res.json({

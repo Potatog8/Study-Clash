@@ -13,6 +13,12 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
+import { getCurrentUser } from "/js/firebase/session.js";
+
+getCurrentUser().then((user) => {
+  if (user) window.location.replace("/home");
+});
+
 const show = (id, msg) => {
   document.getElementById(id).textContent = msg;
 };
@@ -52,7 +58,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       friendIds: [],
     });
 
-    window.location.href = "/home.html";
+    window.location.href = "/home";
 
   } catch (err) {
     show("signup-error", err.message);
@@ -69,7 +75,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
 
-    window.location.href = "/home.html";
+    window.location.href = "/home";
 
   } catch (err) {
     show("login-error", err.message);
