@@ -47,10 +47,10 @@ function showMessage(text, isSuccess = false) {
 /* ---------- Keep the code clean as they type ---------- */
 // Capitals only, letters and numbers only, max 5 characters
 input.addEventListener("input", () => {
-  input.value = input.value
-    .toUpperCase()
-    .replace(/[^A-Z0-9]/g, "")
-    .slice(0, CODE_LENGTH);
+  let value = input.value.toUpperCase();
+  // Allow pasting the full code (e.g. "SC-YL5RZ"); the prefix is added back on lookup
+  if (value.startsWith(CODE_PREFIX)) value = value.slice(CODE_PREFIX.length);
+  input.value = value.replace(/[^A-Z0-9]/g, "").slice(0, CODE_LENGTH);
   showMessage("");
 });
 
