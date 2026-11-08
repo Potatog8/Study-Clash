@@ -9,6 +9,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
 import {
+  addDoc,
+  collection,
   doc,
   setDoc,
   serverTimestamp,
@@ -61,9 +63,13 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       totalStudyMinutes: 0,
       longestStudyStreak: 0,
       createdAt: serverTimestamp(),
+      studySessions: [],
       friendCode,
       friendIds: [],
     });
+
+    // Create the user's studySessions subcollection with an initial session.
+
 
     window.location.href = "/leaderboard";
 
