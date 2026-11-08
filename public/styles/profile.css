@@ -19,6 +19,10 @@
     color: #2d5199;
 }
 
+main {
+    padding: 34px 34px;
+}
+
 /* Statistics Cards */
 .stat-card {
     background-color: #e7d49e;
@@ -47,9 +51,78 @@
     border: 1px solid #d6ad4d;
     font-size: 14px;
 }
+
 /* Study Clash Logo */
 .site-logo {
     width: 40px;
     height: 40px;
     object-fit: contain;
+}
+
+
+.session-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    color: var(--navy);
+    border-radius: 12px;
+}
+
+.session-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.session-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.session-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.session-sub {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.view-more-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: var(--blue);
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.view-more-btn:hover {
+    background: var(--purple);
+}
+
+.view-more-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* 2 x 2 grid on phones so four stats don't get cramped */
+@media (max-width: 600px) {
+    .session-card {
+        grid-template-columns: 1fr 1fr;
+    }
 }

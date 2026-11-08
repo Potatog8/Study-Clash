@@ -18,6 +18,8 @@ function el(tag, className, text) {
   return node;
 }
 
+
+
 // 750 -> "12h 30m", 45 -> "45m", missing -> "---"
 function formatMinutes(minutes) {
   if (minutes === null || minutes === undefined) return EMPTY;
@@ -118,3 +120,5 @@ if (list) {
    const snapshot = await getDocs(q);
    renderLeaderboard(snapshot.docs.map((doc) => doc.data()));
 */
+
+

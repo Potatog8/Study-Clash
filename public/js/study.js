@@ -1,4 +1,4 @@
-import { db } from "/js/firebase/Config.js";
+import { db } from "/js/firebase/config.js";
 import { requireUser, getUserData, logout } from "/js/firebase/session.js";
 import {
   doc,
@@ -153,6 +153,7 @@ async function saveSession(user, minutes) {
       elapsedTimeMinutes: minutes,
       date: serverTimestamp(),
       score: points,
+      streak,
     });
 
     tx.update(userRef, {

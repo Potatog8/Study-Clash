@@ -1,5 +1,5 @@
 
-import { auth, db } from "/js/firebase/Config.js";
+import { auth, db } from "/js/firebase/config.js";
 import { generateUniqueFriendCode } from "/js/firebase/friendCode.js";
 
 import {
