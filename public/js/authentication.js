@@ -14,6 +14,12 @@ import {
   serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
+import { getCurrentUser } from "/js/firebase/session.js";
+
+getCurrentUser().then((user) => {
+  if (user) window.location.replace("/leaderboard");
+});
+
 // Display error messages
 const show = (id, msg) => {
   document.getElementById(id).textContent = msg;
@@ -59,8 +65,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       friendIds: [],
     });
 
-    // Redirect after successful signup
-    window.location.href = "/skeleton.html";
+    window.location.href = "/leaderboard";
 
   } catch (err) {
     console.error("Signup error:", err);
@@ -79,8 +84,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     // Sign in with Firebase Authentication
     await signInWithEmailAndPassword(auth, email, password);
 
-    // Redirect after successful login
-    window.location.href = "public/html/index.html";
+    window.location.href = "/leaderboard";
 
   } catch (err) {
     console.error("Login error:", err);

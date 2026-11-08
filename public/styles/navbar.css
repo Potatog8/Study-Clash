@@ -24,6 +24,23 @@ html {
   height: 100%;
 }
 
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-username {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  /* keeps long usernames from pushing the button off small screens */
+  max-width: 14ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 body {
   min-height: 100%;
   margin: 0;

@@ -14,6 +14,12 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/public/html/login.html");
 });
+app.get("/study", (req, res) => {
+  res.sendFile(__dirname + "/public/html/study.html");
+});
+app.get("/leaderboard", (req, res) => {
+  res.sendFile(__dirname + "/public/html/leaderboard.html");
+});
 
 app.get("/profile", (req, res) => {
   res.sendFile(__dirname + "/public/html/profile.html");
