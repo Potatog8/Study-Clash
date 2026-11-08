@@ -1,0 +1,170 @@
+/* Leaderboard page styles.
+   Uses the palette variables and fonts from navbar.css, so load navbar.css first. */
+
+.leaderboard {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ---------- Heading ---------- */
+.leaderboard-head {
+  margin-bottom: 20px;
+}
+
+.leaderboard-head h1 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.leaderboard-sub {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ---------- List ---------- */
+.leaderboard-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 32px 48px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--paper);
+  border: 2px solid var(--paper);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(5, 58, 100, 0.12);
+}
+
+.lb-top {
+  border-color: var(--gold);
+}
+
+/* Rank badge */
+.lb-rank {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--sand);
+  background: var(--navy);
+  border-radius: 50%;
+}
+
+.lb-top .lb-rank {
+  color: var(--navy);
+  background: var(--gold);
+}
+
+/* Avatar (image, or a letter circle when there's no picture) */
+.lb-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--sand);
+}
+
+.lb-avatar-empty {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--navy);
+  border-style: dashed;
+}
+
+/* Username + streak */
+.lb-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.lb-name {
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lb-streak {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+.lb-flame {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Time studied this week */
+.lb-time {
+  text-align: right;
+}
+
+.lb-time-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.lb-time-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 420px) {
+  .lb-row {
+    grid-template-columns: 28px 40px 1fr auto;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .lb-rank {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .lb-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lb-name {
+    font-size: 1rem;
+  }
+}
