@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,7 @@
 
 <body>
 
-  <!-- NAV BAR (placeholder: add your logo and links here later) -->
+  <!-- NAV BAR -->
   <nav class="site-nav" aria-label="Main navigation"></nav>
 
   <main class="split">
@@ -26,7 +27,7 @@
     <section class="auth-side" aria-label="Log in or sign up">
       <div class="auth">
 
-        <!-- CSS-only tab switch: no JavaScript needed -->
+        <!-- CSS-only tab switch -->
         <input type="radio" name="mode" id="tab-login" class="mode-radio" checked>
         <input type="radio" name="mode" id="tab-signup" class="mode-radio">
 
@@ -36,53 +37,86 @@
         </div>
 
         <!-- LOG IN -->
-        <form class="form form-login" id="login-form" action="#" method="post">
+        <form class="form form-login" id="login-form">
           <h2>Welcome back</h2>
-
 
           <div class="field">
             <label for="login-email">Email</label>
-            <input type="email" id="login-email" name="email" autocomplete="email" required>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              autocomplete="email"
+              required>
           </div>
 
           <div class="field">
             <label for="login-password">Password</label>
-            <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              autocomplete="current-password"
+              required>
           </div>
 
           <a class="forgot" href="#">Forgot your password?</a>
 
           <button type="submit" class="btn">Log in</button>
+
+          <p id="login-error"></p>
         </form>
 
         <!-- SIGN UP -->
-        <form class="form form-signup" id="signup-form" action="#" method="post">
+        <form class="form form-signup" id="signup-form">
           <h2>Create your account</h2>
           <p class="form-hint">Join Study Clash and start competing with your friends.</p>
 
           <div class="field">
             <label for="signup-username">Username</label>
-            <input type="text" id="signup-username" name="username" autocomplete="username" required>
+            <input
+              type="text"
+              id="signup-username"
+              name="username"
+              autocomplete="username"
+              required>
           </div>
 
           <div class="field">
             <label for="signup-email">Email</label>
-            <input type="email" id="signup-email" name="email" autocomplete="email" required>
+            <input
+              type="email"
+              id="signup-email"
+              name="email"
+              autocomplete="email"
+              required>
           </div>
 
           <div class="field">
             <label for="signup-password">Password</label>
-            <input type="password" id="signup-password" name="password" autocomplete="new-password" minlength="6"
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              autocomplete="new-password"
+              minlength="6"
               required>
           </div>
 
           <div class="field">
             <label for="signup-confirm">Confirm password</label>
-            <input type="password" id="signup-confirm" name="confirm" autocomplete="new-password" minlength="6"
+            <input
+              type="password"
+              id="signup-confirm"
+              name="confirm"
+              autocomplete="new-password"
+              minlength="6"
               required>
           </div>
 
           <button type="submit" class="btn">Create account</button>
+
+          <p id="signup-error"></p>
         </form>
 
       </div>
@@ -92,23 +126,28 @@
     <section class="brand-side" aria-label="About Study Clash">
       <div class="brand">
 
-        <!-- LOGO PLACEHOLDER: replace this div with <img src="logo.png" alt="Study Clash logo"> -->
+        <!-- LOGO PLACEHOLDER -->
         <div class="logo-slot" role="img" aria-label="Logo placeholder"></div>
 
         <h1>Study Clash</h1>
-        <p class="tagline">Study Clash turns studying into a friendly competition: team up with friends, track your
-          focus time, and climb the leaderboard together while actually getting your work done!</p>
+        <p class="tagline">
+          Study Clash turns studying into a friendly competition: team up with friends,
+          track your focus time, and climb the leaderboard together while actually
+          getting your work done!
+        </p>
+
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER (placeholder: add links and copyright here later) -->
+  <!-- FOOTER -->
   <footer class="site-footer"></footer>
 
+  <!-- SCRIPTS -->
   <script src="/js/login.js"></script>
   <script type="module" src="/js/authentication.js"></script>
-  
+
 </body>
 
 </html>

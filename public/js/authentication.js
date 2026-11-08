@@ -1,18 +1,20 @@
+
 import { auth, db } from "/js/firebase/Config.js";
 import { generateUniqueFriendCode } from "/js/firebase/friendCode.js";
 
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
+  updateProfile,
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
 import {
   doc,
   setDoc,
-  serverTimestamp
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
+// Display error messages
 const show = (id, msg) => {
   document.getElementById(id).textContent = msg;
 };
@@ -26,19 +28,24 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
   const password = document.getElementById("signup-password").value;
   const confirm = document.getElementById("signup-confirm").value;
 
+  // Check if passwords match
   if (password !== confirm) {
     return show("signup-error", "Passwords don't match.");
   }
 
   try {
+    // Create Firebase Authentication account
     const cred = await createUserWithEmailAndPassword(auth, email, password);
 
+    // Set user's display name
     await updateProfile(cred.user, {
       displayName: username,
     });
 
+    // Generate a unique friend code
     const friendCode = await generateUniqueFriendCode();
 
+    // Create Firestore user document
     await setDoc(doc(db, "users", cred.user.uid), {
       username,
       email,
@@ -48,13 +55,15 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       totalStudyMinutes: 0,
       longestStudyStreak: 0,
       createdAt: serverTimestamp(),
-      friendCode: friendCode, // Generate a unique code separately
+      friendCode,
       friendIds: [],
     });
 
+    // Redirect after successful signup
     window.location.href = "/home.html";
 
   } catch (err) {
+    console.error("Signup error:", err);
     show("signup-error", err.message);
   }
 });
@@ -67,11 +76,14 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   const password = document.getElementById("login-password").value;
 
   try {
+    // Sign in with Firebase Authentication
     await signInWithEmailAndPassword(auth, email, password);
 
+    // Redirect after successful login
     window.location.href = "/home.html";
 
   } catch (err) {
+    console.error("Login error:", err);
     show("login-error", err.message);
   }
 });
