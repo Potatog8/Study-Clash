@@ -1,17 +1,25 @@
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/VERSION/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/VERSION/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/VERSION/firebase-firestore.js";
 
-const res = await fetch("/api/firebase-config");
-if (!res.ok) throw new Error("Could not load Firebase config from the server.");
-const firebaseConfig = await res.json();
+// Import Firebase
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-const missing = Object.entries(firebaseConfig).filter(([, v]) => !v).map(([k]) => k);
-if (missing.length) {
-  throw new Error(`Missing Firebase values in .env: ${missing.join(", ")}. Restart the server after editing .env.`);
-}
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.firebasestorage.app",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+// Initialize Firebase services
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Export services
+export { app, auth, db };
