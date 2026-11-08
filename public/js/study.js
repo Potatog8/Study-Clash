@@ -1,5 +1,5 @@
 import { db } from "/js/firebase/Config.js";
-import { requireUser, getUserData, logout } from "/js/firebase/session.js";
+import { requireUser, logout } from "/js/firebase/session.js";
 import {
   doc,
   collection,
@@ -230,9 +230,6 @@ async function playResults(minutes, { points, streak, previousTotal, totalPoints
 async function init() {
   const user = await requireUser();
   if (!user) return; // already redirecting to /login
-
-  const data = await getUserData(user.uid);
-  document.getElementById("header-username").textContent = data?.username ?? "";
 
   document.getElementById("logout-btn").addEventListener("click", (e) => {
     e.preventDefault();

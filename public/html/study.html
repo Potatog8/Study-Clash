@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/study.css">
+  <link rel="stylesheet" href="/styles/addFriend.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     </a>
 
     <div class="header-user">
-      <span class="header-username" id="header-username"></span>
+      <button type="button" class="header-friend" id="add-friend-btn">Add friend</button>
       <a class="header-login" id="logout-btn" href="/login">Log out</a>
     </div>
   </header>
@@ -99,6 +100,28 @@
     </a>
 
   </nav>
+
+  <!-- ADD FRIEND POPUP -->
+  <dialog class="friend-dialog" id="friend-dialog" aria-labelledby="friend-dialog-title">
+    <form class="friend-form" id="friend-form">
+      <button type="button" class="friend-close" id="friend-close" aria-label="Close">&times;</button>
+
+      <h2 id="friend-dialog-title">Add a friend</h2>
+      <p class="friend-hint">Enter their 5-character friend code (letters and numbers only).</p>
+
+      <div class="field">
+        <label for="friend-code">Friend code</label>
+        <input type="text" id="friend-code" class="friend-code-input" name="code" placeholder="A1B2C"
+          autocomplete="off" autocapitalize="characters" spellcheck="false" autofocus>
+      </div>
+
+      <p class="friend-error" id="friend-error" role="alert"></p>
+
+      <button type="submit" class="friend-submit">Add Friend</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="/js/addFriend.js"></script>
   <script type="module" src="/js/study.js"></script>
   <script type="module" src="/js/leaderboard.js"></script>
 
