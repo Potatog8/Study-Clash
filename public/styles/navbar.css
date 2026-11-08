@@ -187,3 +187,10 @@ body {
     transition: none !important;
   }
 }
+/* Study Clash Logo */
+.site-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
