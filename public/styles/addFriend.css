@@ -194,3 +194,8 @@ body:has(.friend-dialog[open]) {
   font-weight: 600;
   color: rgba(5, 58, 100, 0.3);
 }
+
+/* Success message in the popup (reuses the .friend-error line) */
+.friend-error.is-success {
+  color: #2e7d4f;
+}
