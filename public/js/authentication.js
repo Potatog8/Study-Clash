@@ -1,4 +1,5 @@
 import { auth, db } from "/js/firebase/Config.js";
+import { generateUniqueFriendCode } from "/js/firebase/friendCode.js";
 
 import {
   createUserWithEmailAndPassword,
@@ -36,6 +37,8 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       displayName: username,
     });
 
+    const friendCode = await generateUniqueFriendCode();
+
     // await setDoc(doc(db, "users", cred.user.uid), {
     //   username,
     //   email,
@@ -52,13 +55,14 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     await setDoc(doc(db, "users", cred.user.uid), {
       username,
       email,
-      friendCode: "", // Generate a unique code separately
-      friendIds: [],
-      totalStudyMinutes: 0,
-      studyStreak: 0,
-      createdAt: serverTimestamp(),
       avatarId: 0,
-      
+      currentStudyMinutes: 0,
+      currentStudyStreak: 0,
+      totalStudyMinutes: 0,
+      longestStudyStreak: 0,
+      createdAt: serverTimestamp(),
+      friendCode: friendCode, // Generate a unique code separately
+      friendIds: [],
     });
 
     window.location.href = "/home.html";
