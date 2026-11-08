@@ -47,3 +47,9 @@
     border: 1px solid #d6ad4d;
     font-size: 14px;
 }
+/* Study Clash Logo */
+.site-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
