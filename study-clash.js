@@ -16,8 +16,8 @@ app.get("/login", (req, res) => {
 app.get("/study", (req, res) => {
   res.sendFile(__dirname + "/public/html/study.html");
 });
-app.get("/home", (req, res) => {
-  res.sendFile(__dirname + "/public/html/home.html");
+app.get("/leaderboard", (req, res) => {
+  res.sendFile(__dirname + "/public/html/leaderboard.html");
 });
 
 app.get("/api/firebase-config", (req, res) => {
