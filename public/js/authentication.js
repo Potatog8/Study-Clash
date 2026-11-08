@@ -39,19 +39,6 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
 
     const friendCode = await generateUniqueFriendCode();
 
-    // await setDoc(doc(db, "users", cred.user.uid), {
-    //   username,
-    //   email,
-    //   friendCode: "", // Generate a unique code separately
-    //   friendIds: [],
-    //   totalStudyMinutes: 0,
-    //   studyStreak: 0,
-    //   createdAt: serverTimestamp(),
-    //   avatarId: 0,
-
-    // });
-
-
     await setDoc(doc(db, "users", cred.user.uid), {
       username,
       email,
