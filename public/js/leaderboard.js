@@ -85,6 +85,10 @@ function createRow(player, index) {
 // players should already be ranked, highest weekly time first.
 // Each player: { username, avatarUrl, weeklyMinutes, streak }
 export function renderLeaderboard(players) {
+
+  // Stop if this page doesn't have a leaderboard
+  if (!list) return;
+
   list.replaceChildren(...players.map(createRow));
 }
 
@@ -97,7 +101,9 @@ const placeholderPlayers = Array.from({ length: 5 }, () => ({
   streak: null,
 }));
 
-renderLeaderboard(placeholderPlayers);
+if (list) {
+  renderLeaderboard(placeholderPlayers);
+}
 
 /* ---------- TODO: load the real data from Firestore ----------
    Swap the placeholder call above for something like this. The field names
