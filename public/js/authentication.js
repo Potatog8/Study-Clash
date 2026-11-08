@@ -18,9 +18,9 @@ import {
 
 import { getCurrentUser } from "/js/firebase/session.js";
 
-getCurrentUser().then((user) => {
-  if (user) window.location.replace("/leaderboard");
-});
+// getCurrentUser().then((user) => {
+//   if (user) window.location.replace("/leaderboard");
+// });
 
 // Display error messages
 const show = (id, msg) => {
@@ -69,10 +69,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       friendIds: [],
     });
 
-    // Create the user's studySessions subcollection with an initial session.
-
-
-    window.location.href = "/leaderboard";
+    window.location.href = "/leaderboard.html";
 
   } catch (err) {
     console.error("Signup error:", err);
