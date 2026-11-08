@@ -162,6 +162,8 @@ async function saveSession(user, minutes) {
       currentStudyStreak: streak,
       longestStudyStreak: Math.max(u.longestStudyStreak ?? 0, streak),
       lastStudyDate: today,
+      currentStudyMinutes: increment(minutes),
+      
     });
 
     return { points, streak, previousTotal, totalPoints };
