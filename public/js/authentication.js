@@ -58,6 +58,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
       username,
       email,
       avatarId: 0,
+      totalPoints:0,
       currentStudyMinutes: 0,
       currentStudyStreak: 0,
       totalStudyMinutes: 0,

@@ -50,6 +50,26 @@
       </div>
 
     </section>
+    <section class="results-card" id="results-card" aria-live="polite" hidden>
+      <h2 class="results-title reveal" id="result-message"></h2>
+
+      <p class="results-line reveal" id="result-time"></p>
+
+      <p class="results-line reveal" id="result-points-line">
+        You gained <span id="result-points">0</span> points!
+        (<span id="result-streak">1</span> day streak)
+      </p>
+
+      <p class="results-total reveal" id="result-total-line">
+        Total Points: <span id="result-total">0</span>
+      </p>
+
+      <div class="results-actions reveal" id="result-actions">
+        <a class="study-btn study-btn-secondary results-btn" href="/leaderboard">View Leaderboards</a>
+        <button type="button" class="study-btn results-btn results-btn-primary" id="keep-studying-btn">Keep
+          Studying</button>
+      </div>
+    </section>
   </main>
 
   <!-- BOTTOM NAVBAR -->

@@ -293,3 +293,100 @@
     transition: none;
   }
 }
+
+/* ---------- Disabled buttons ---------- */
+.study-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* display: grid on .timer-card would otherwise override the hidden attribute */
+.timer-card[hidden],
+.results-card[hidden] {
+  display: none;
+}
+
+/* ---------- Results card ---------- */
+.results-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--cream);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(5, 58, 100, 0.18);
+}
+
+/* Hidden but still taking up space, so the card doesn't jump as lines appear */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.results-title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.results-line {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.results-total {
+  margin: 24px 0 36px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+  color: var(--purple);
+  font-variant-numeric: tabular-nums;
+}
+
+.results-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.results-btn {
+  display: block;
+  padding: 16px 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.results-btn-primary {
+  color: #fff;
+  background: var(--blue);
+  border: 2px solid var(--blue);
+}
+
+.results-btn-primary:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+@media (min-width: 600px) {
+  .results-card {
+    max-width: 540px;
+    padding: 44px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
+}
